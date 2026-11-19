@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "renderer": "hyperframes",
+  "fps": 30,
+  "captions": true,
+  "animationIntensity": 0.65,
+  "external": {"enabled": false, "maxCostUsd": 0, "maxRequests": 8, "maxImages": 4, "maxVideos": 1},
+  "research": {
+    "provider": "disabled",
+    "baseUrl": "https://api.openai.com/v1",
+    "keyEnv": "OPENAI_API_KEY",
+    "routineModel": "",
+    "complexModel": "",
+    "useComplex": false,
+    "webSearch": false,
+    "estimatedMaxCostUsd": null
+  },
+  "tts": {
+    "provider": "kokoro",
+    "voice": "am_michael",
+    "speed": 0.95,
+    "sentencePause": 0.22,
+    "model": "assets/kokoro/kokoro-v1.0.onnx",
+    "voices": "assets/kokoro/voices-v1.0.bin",
+    "dependencies": "vendor/kokoro-deps"
+  },
+  "paths": {
+    "python": "python",
+    "hyperframes": "node_modules/hyperframes/bin/hyperframes.mjs",
+    "browser": "",
+    "ffmpeg": "ffmpeg",
+    "ffprobe": "ffprobe",
+    "scribble": "assets/scribble.js",
+    "font": "assets/inter-bold.woff2",
+    "gsap": "assets/gsap.min.js"
+  },
+  "publication": {
+    "channel": "",
+    "visibility": "public",
+    "audience": "general",
+    "processingAttempts": 12,
+    "processingIntervalMs": 5000,
+    "deleteAfterPublish": true
+  }
+}

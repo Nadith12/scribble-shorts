@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {resolve} from 'node:path';
+import {ROOT,loadConfig} from '../config.mjs';
+import {json,atomic} from '../io.mjs';
+import {renderVideo} from '../render.mjs';
+import {validateVideo} from '../quality.mjs';
+const config=await loadConfig(),run=resolve(ROOT,'work/pipeline/pipeline-media-test');
+const timeline=await json(resolve(run,'timeline.json')),output=resolve(run,'media-remotion-final.mp4');
+await renderVideo(timeline,config,run,output,{backend:'remotion'});
+const report=await validateVideo(output,timeline,config,run,{});
+assert.ok(report.peakDb>-2.1&&report.peakDb<-.5);
+await atomic(resolve(run,'verification-remotion-final.json'),report);
+const results=await json(resolve(ROOT,'work/pipeline/integration-results.json'));
+results.checks.push({name:'Remotion video-only composition + FFmpeg narration delivery end to end',status:'passed',output,duration:report.duration,peakDb:report.peakDb});
+await atomic(resolve(ROOT,'work/pipeline/integration-results.json'),results);
+console.log('Remotion delivery end-to-end smoke passed.');

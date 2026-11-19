@@ -1,0 +1,17 @@
+# Credentials — never commit these.
+/work/youtube-auth/
+/shorts.config.local.json
+
+# Generated media and production records.
+/work/*
+!/work/.gitkeep
+/outputs/*
+!/outputs/.gitkeep
+
+# Installed or downloaded assets.
+/node_modules/
+/vendor/
+/assets/kokoro/
+/work/npm-cache/
+
+**/__pycache__/

@@ -1,0 +1,5 @@
+# Installed into vendor/kokoro-deps, not into the system environment:
+#   python -m pip install --target vendor/kokoro-deps -r requirements-kokoro.txt
+kokoro-onnx==0.6.1
+numpy==2.5.5
+onnxruntime==1.32.0
